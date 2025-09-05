@@ -1,0 +1,34 @@
+<div class="sample">
+  {% component sample %}
+</div>
+
+{% set union = r/[|]/g %}
+
+{% if data.attributes %}
+<h2>Attributes</h2>
+{% for attr in data.attributes %}
+  <div class="control control--attr">
+    <label class="control__label">
+      <span class="control__name">{{ attr.name }}</span>
+      {% if attr.type.text == 'boolean' %}
+        <input class="control__value" name="{{ attr.name }}" type="checkbox" />
+      {% endif %}
+      {% if union.test(attr.type.text) %}
+        {{ attr | select | safe }}
+      {% endif %}
+    </label>
+  </div>
+{% endfor %}
+{% endif %}
+
+{% if data.cssProperties %}
+<h2>Custom CSS properties</h2>
+{% for prop in data.cssProperties %}
+  <div class="control control--cssprop">
+    <label class="control__label">
+      <span class="control__name">{{ prop.description }}</span>
+      <input class="control__value" name="{{ prop.name }}" placeholder="{{ prop.default }}" />
+    </label>
+  </div>
+{% endfor %}
+{% endif %}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <title>{{ title if title else metadata.title }}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app-layout">
+    {% include "partials/header.njk" %}
+
+    <div class="app-layout__wrapper">
+      {% include "partials/navigation.njk" %}
+
+      <div class="app-layout__content">
+        <div class="page">
+          <main class="page__main">
+            <article>
+              <div class="page__header">
+                <h1 class="page__title">
+                  {{ title }}
+                </h1>
+              </div>
+
+              <div class="article">
+                {% include "partials/playground.njk" %}
+              </div>
+            </article>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+ <script type="module" src="/assets/components.js"></script>
+</body>
+</html>

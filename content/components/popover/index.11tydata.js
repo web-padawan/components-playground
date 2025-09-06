@@ -1,12 +1,5 @@
 /**
- * @typedef {import('custom-elements-manifest').CustomElement} CustomElement
- */
-
-/**
- * @typedef ComponentData
- * @type {object}
- * @property {string} sample - Sample HTML to be rendered
- * @property {CustomElement} data - Custom Element Manifest data
+ * @typedef {import('../../../src/types').ComponentData} ComponentData
  */
 
 /** @type {ComponentData} */
@@ -18,7 +11,103 @@ export default {
     <button id="target">Target</button>
   `,
   data: {
+    members: [
+      {
+        kind: 'field',
+        name: 'hideDelay',
+        type: {
+          text: 'number',
+        },
+        default: '500',
+        description: 'The delay in milliseconds before the tooltip is closed on mouseleave',
+        attribute: 'hide-delay',
+      },
+      {
+        kind: 'field',
+        name: 'hoverDelay',
+        type: {
+          text: 'number',
+        },
+        default: '500',
+        description: 'The delay in milliseconds before the tooltip is opened on hover',
+        attribute: 'hover-delay',
+      },
+      {
+        kind: 'field',
+        name: 'focusDelay',
+        type: {
+          text: 'number',
+        },
+        default: '500',
+        description: 'The delay in milliseconds before the tooltip is opened on focus',
+        attribute: 'focus-delay',
+      },
+      {
+        kind: 'field',
+        name: 'modal',
+        type: {
+          text: 'boolean',
+        },
+        default: '500',
+        description: 'Whether the popover is modal',
+        attribute: 'modal',
+        reflects: true,
+      },
+      {
+        kind: 'field',
+        name: 'noCloseOnEsc',
+        type: {
+          text: 'boolean',
+        },
+        default: 'false',
+        description: 'Whether the popover should close on Esc',
+        attribute: 'no-close-on-esc',
+        reflects: true,
+      },
+      {
+        kind: 'field',
+        name: 'noCloseOnOutsideClick',
+        type: {
+          text: 'boolean',
+        },
+        default: 'false',
+        description: 'Whether the popover should close on outside click',
+        attribute: 'no-close-on-outside-click',
+        reflects: true,
+      },
+      {
+        kind: 'field',
+        name: 'position',
+        type: {
+          text:  `'bottom' | 'bottom-end' | 'bottom-start' | 'end' | 'end-bottom' | 'end-top' | 'start' | 'start-bottom' | 'start-top' | 'top' | 'top-end' | 'top-start'`,
+        },
+        default: 'bottom',
+        description: 'Position of the tooltip with respect to its target',
+        attribute: 'position',
+      },
+      {
+        kind: 'field',
+        name: 'withBackdrop',
+        type: {
+          text: 'boolean',
+        },
+        default: 'false',
+        description: 'Whether the popover should have a backdrop',
+        attribute: 'with-backdrop',
+        reflects: true,
+      },
+    ],
     cssProperties: [
+      {
+        description: 'Arrow size',
+        name: '--vaadin-popover-arrow-size',
+        default: '8px',
+      },
+      {
+        description: 'Background',
+        name: '--vaadin-popover-background',
+        default: 'var(--vaadin-overlay-background)',
+      },
       {
         description: 'Border width',
         name: '--vaadin-popover-border-width',
@@ -29,28 +118,45 @@ export default {
         name: '--vaadin-popover-border-color',
         default: 'var(--vaadin-overlay-border-color)',
       },
+      {
+        description: 'Box shadow',
+        name: '--vaadin-popover-box-shadow',
+        default: '0 8px 24px -4px rgba(0, 0, 0, 0.3)',
+      },
+      {
+        description: 'Offset bottom',
+        name: '--vaadin-popover-offset-bottom',
+        default: '8px',
+      },
+      {
+        description: 'Offset end',
+        name: '--vaadin-popover-offset-end',
+        default: '8px',
+      },
+      {
+        description: 'Offset start',
+        name: '--vaadin-popover-offset-start',
+        default: '8px',
+      },
+      {
+        description: 'Offset top',
+        name: '--vaadin-popover-offset-top',
+        default: '8px',
+      },
+      {
+        description: 'Padding',
+        name: '--vaadin-popover-padding',
+        default: 'var(--vaadin-padding-s)',
+      },
     ],
-    attributes: [
+    variants: [
       {
-        type: {
-          text: 'boolean',
-        },
-        description: 'When true, the popover is modal',
-        name: 'modal',
+        description: 'Set to remove padding',
+        name: 'no-padding',
       },
       {
-        type: {
-          text: 'boolean',
-        },
-        description: 'When true, the popover has backdrop',
-        name: 'with-backdrop',
-      },
-      {
-        type: {
-          text: `'bottom' | 'bottom-end' | 'bottom-start' | 'end' | 'end-bottom' | 'end-top' | 'start' | 'start-bottom' | 'start-top' | 'top' | 'top-end' | 'top-start'`,
-        },
-        description: 'Position of the popover with respect to its target',
-        name: 'position',
+        description: 'Set to show the arrow',
+        name: 'arrow',
       },
     ],
   },

@@ -1,12 +1,12 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default {
-  input: 'src/components.js',
+  input: 'src/playground.js',
   output: {
     sourcemap: false,
     format: 'es',
-    name: 'components',
-    file: 'dist/assets/components.js',
+    name: 'playground',
+    file: 'dist/assets/playground.js',
   },
   plugins: [
     nodeResolve()

@@ -25,6 +25,6 @@ export default function (config) {
       return `<option ${idx === 0 ? 'selected' : ''} value="${v}">${v}</option>`;
     }).join('\n');
 
-    return `<select class="control__value" name="${attr.name}">${options}</select>`;
+    return `<select id="${attr.name}" class="control__value" name="${attr.name}">${options}</select>`;
   });
 }

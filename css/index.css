@@ -549,17 +549,22 @@ hr {
 }
 
 /* Playground */
-.control {
-  display: block;
+.controls {
+  display: grid;
   max-width: 480px;
+  grid-template-columns: minmax(120px, auto) 1fr;
+  gap: 1rem 0.5rem;
 }
 
-.control__label {
-  display: grid;
-  grid-template-columns: minmax(100px, auto) 1fr;
-  gap: 1rem;
+.control {
+  display: contents;
 }
 
 .control__value {
   justify-self: start;
+}
+
+:is(input[type='text'], input[type='number'], select) {
+  width: 100%;
+  max-width: 320px;
 }

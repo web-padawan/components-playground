@@ -5,7 +5,7 @@
 /** @type {ComponentData} */
 export default {
   sample: `
-    <vaadin-dialog header-title="Dialog">
+    <vaadin-dialog>
       <div>Customizable dialog built with native popover API</div>
     </vaadin-dialog>
     <button>Open dialog</button>
@@ -22,6 +22,16 @@ export default {
         description: 'When true, the dialog is draggable',
         attribute: 'draggable',
         reflects: true,
+      },
+      {
+        kind: 'field',
+        name: 'headerTitle',
+        type: {
+          text: 'string',
+        },
+        default: '',
+        description: 'Title of the dialog',
+        attribute: 'header-title',
       },
       {
         kind: 'field',
@@ -148,6 +158,26 @@ export default {
         description: 'Padding',
         name: '--vaadin-dialog-padding',
         default: 'var(--vaadin-padding-l)',
+      },
+      {
+        description: 'Title color',
+        name: '--vaadin-dialog-title-color',
+        default: 'var(--vaadin-text-color)',
+      },
+      {
+        description: 'Title font size',
+        name: '--vaadin-dialog-title-font-size',
+        default: '1em',
+      },
+      {
+        description: 'Title font weight',
+        name: '--vaadin-dialog-title-font-weight',
+        default: '600',
+      },
+      {
+        description: 'Title line height',
+        name: '--vaadin-dialog-title-line-height',
+        default: 'inherit',
       },
     ],
     variants: [

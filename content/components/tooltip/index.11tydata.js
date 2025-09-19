@@ -5,8 +5,8 @@
 /** @type {ComponentData} */
 export default {
   sample: `
-    <vaadin-tooltip for="target" text="Tooltip text"></vaadin-tooltip>
-    <button id="target">Target</button>
+    <vaadin-tooltip for="target" text="Built with native popover API"></vaadin-tooltip>
+    <button id="target">Show tooltip</button>
   `,
   data: {
     members: [

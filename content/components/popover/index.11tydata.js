@@ -6,9 +6,9 @@
 export default {
   sample: `
     <vaadin-popover for="target">
-      <div>Popover content</div>
+      <div>Built with native popover API</div>
     </vaadin-popover>
-    <button id="target">Target</button>
+    <button id="target">Toggle popover</button>
   `,
   data: {
     members: [
@@ -44,11 +44,21 @@ export default {
       },
       {
         kind: 'field',
+        name: 'height',
+        type: {
+          text: 'number',
+        },
+        default: '',
+        description: 'Height of the popover',
+        attribute: 'height',
+      },
+      {
+        kind: 'field',
         name: 'modal',
         type: {
           text: 'boolean',
         },
-        default: '500',
+        default: 'false',
         description: 'Whether the popover is modal',
         attribute: 'modal',
         reflects: true,
@@ -87,6 +97,16 @@ export default {
       },
       {
         kind: 'field',
+        name: 'width',
+        type: {
+          text: 'number',
+        },
+        default: '',
+        description: 'Width of the popover',
+        attribute: 'width',
+      },
+      {
+        kind: 'field',
         name: 'withBackdrop',
         type: {
           text: 'boolean',
@@ -109,14 +129,19 @@ export default {
         default: 'var(--vaadin-overlay-background)',
       },
       {
-        description: 'Border width',
-        name: '--vaadin-popover-border-width',
-        default: 'var(--vaadin-overlay-border-width, 1px)',
-      },
-      {
         description: 'Border color',
         name: '--vaadin-popover-border-color',
         default: 'var(--vaadin-overlay-border-color)',
+      },
+      {
+        description: 'Border radius',
+        name: '--vaadin-overlay-border-radius',
+        default: 'var(--vaadin-radius-m)',
+      },
+      {
+        description: 'Border width',
+        name: '--vaadin-popover-border-width',
+        default: 'var(--vaadin-overlay-border-width, 1px)',
       },
       {
         description: 'Box shadow',
